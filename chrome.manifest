@@ -1,0 +1,5 @@
+content	mailaddressbook			content/
+locale	mailaddressbook	en-US	locale/en-US/
+locale	mailaddressbook	ko		locale/ko/
+
+overlay	chrome://messenger/content/messenger.xul	chrome://mailaddressbook/content/messengerOverlay.xul

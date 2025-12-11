@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://mailaddressbook/locale/messengerOverlay.dtd">
+
+<overlay id="messengerOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<commandset id="mailCommands">
+		<command id="toggleAddressBook" oncommand="toggleAddressBookBox();" />
+	</commandset>
+
+	<vbox id="folderPaneBox">
+		<splitter id="addressbook-splitter" collapse="after" insertafter="folderTree" onmouseup="persistHeight();" persist="state">
+			<grippy onclick="toggleAddressBook();" />
+		</splitter>
+		
+		<vbox id="addressbook-box" flex="0" persist="collapsed" insertafter="addressbook-splitter">
+			<browser id="addressbook-viewer" src="chrome://messenger/content/addressbook/addressbook-panel.xul" flex="1" disablehistory="true" disableglobalhistory="true" type="content" />
+		</vbox>
+	</vbox>
+	
+	<menupopup id="menu_View_Popup">
+		<menu id="menu_Toolbars">
+			<menupopup id="view_toolbars_popup">
+				<menuitem id="addressbook-menu" type="checkbox" label="&addressBookCmd.label;" accesskey="&addressBookCmd.accesskey;" command="toggleAddressBook" />
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<script type="application/javascript" src="chrome://mailaddressbook/content/messengerOverlay.js" />
+</overlay>

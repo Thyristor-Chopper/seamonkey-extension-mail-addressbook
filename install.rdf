@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+	<Description about="urn:mozilla:install-manifest">
+		<em:id>{E808ACEB-BD6A-4e5c-B076-2858F1B04273}</em:id>
+		<em:name>Address book in Messenger</em:name>
+		<em:version>1.0.0</em:version>
+		<em:description>Shows the address book in the Mail and Newsgroups window.</em:description>
+		<em:creator>길고</em:creator>
+
+		<!-- Iceape-UXP -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}</em:id>
+				<em:minVersion>52.9.20250617</em:minVersion>
+				<em:maxVersion>56.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+		
+		<!-- SeaMonkey -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+				<em:minVersion>2.49.5</em:minVersion>
+				<em:maxVersion>2.53.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+	</Description>
+</RDF>
