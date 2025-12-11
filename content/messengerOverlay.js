@@ -1,3 +1,6 @@
+var addressBookBrowser = null;
+var addressBookFixInterval = null;
+
 function toggleAddressBookBox() {
 	var splitter = document.getElementById('addressbook-splitter');
 	var ab = document.getElementById('addressbook-box');
@@ -28,6 +31,13 @@ function persistHeight() {
 	setTimeout(() => document.persist('addressbook-box', 'height'), 100);
 }
 
+function fixAddressBook() {
+	if(addressBookBrowser && addressBookBrowser.contentDocument && addressBookBrowser.contentDocument.documentElement && addressBookBrowser.contentDocument.documentElement.hasAttribute('selectedaddresses')) {
+		addressBookBrowser.contentDocument.documentElement.removeAttribute('selectedaddresses');
+		clearInterval(addressBookFixInterval);
+	}
+}
+
 addEventListener('load', function() {
 	var splitter = document.getElementById('addressbook-splitter');
 	var menuitem = document.getElementById('addressbook-menu');
@@ -35,4 +45,7 @@ addEventListener('load', function() {
 		menuitem.setAttribute('checked', 'false');
 	else
 		menuitem.setAttribute('checked', 'true');
+	addressBookBrowser = document.getElementById('addressbook-viewer');
+	fixAddressBook();
+	addressBookFixInterval = setInterval(fixAddressBook, 100);
 }, false);
